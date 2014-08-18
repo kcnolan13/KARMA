@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>KML Landmarks</name>
+							<Style id="waypoint">
+								<IconStyle>
+									<scale>0.5</scale>
+									<Icon>
+										<href>./icons/marker_blue.png</href>
+									</Icon>
+								</IconStyle>
+							</Style>
+
+		<Folder>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KMCF&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-82.5166666666667, 27.85, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;ART&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-71.85, 38.7166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;PANC&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-149.983333333333, 61.1666666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;RJTY&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>139.35, 35.75, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;PHNL&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-157.916666666667, 21.3166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;TBPB&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-59.4833333333333, 13.0666666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;PAFA&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-147.85, 64.8, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;TISX&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-64.8, 17.7, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;PHJR&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-158.066666666667, 21.3, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KLGB&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-118.166666666667, 33.7666666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;PMDY&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-177.366666666667, 28.2166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KRNO&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-119.766666666667, 39.4833333333333, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;BUOY&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-85.6166666666667, 26.05, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KJAX&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-81.6833333333333, 30.5, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KTBW&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-82.4, 27.7, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KEYW&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-81.7, 24.6, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KMLB&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-80.75, 28.1, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KAMX&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-80.4166666666667, 25.6166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;EPSM&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-85.3833333333333, 26.0333333333333, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KARA&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-91.8833333333333, 30.0333333333333, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;KSUU&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-121.933333333333, 38.2666666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+
+	</Document>
+</kml>

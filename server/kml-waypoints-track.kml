@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>KML Waypoints Track</name>
+			<Style id="trackStyle">
+				<LineStyle>
+					<color>50003C14</color>
+					<width>2</width>
+				</LineStyle>
+			</Style>
+		<Folder id="waypointTrack">
+			<Placemark>
+				<styleUrl>#trackStyle</styleUrl>
+				<name>WaypointTrack</name>
+				<index>-100</index>
+				<LineString>
+					<altitudeMode>absolute</altitudeMode>
+					<coordinates>
+						-73.5, 36.7, 0
+						-70.15, 41.2166666666667, 0
+						-68.4833333333333, 39.15, 0
+						-74.0666666666667, 39.3166666666667, 0
+						-72.5166666666667, 40.85, 0
+						-69.7333333333333, 37.4, 0
+					</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+
+	</Document>
+</kml>

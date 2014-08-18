@@ -1,0 +1,594 @@
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<title>KARMA</title>
+
+	<style type="text/css">
+	html, body, #map {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	}
+
+
+	#map{
+	    width:100%;
+	    height:100%;
+	    background-color:rgb(85,85,85);
+
+	}
+
+	div.olControlAttribution {
+	    opacity: 0.50;
+	    right:0.5em;
+        bottom:-0.25em;
+	}
+
+	div.olControlScaleLine {
+		left: 10px;
+		bottom: 5px;
+		font-size: xx-small;
+		right: auto;
+		position: relative;
+	}
+
+	div.olControlMousePosition {
+		left: 425px;
+		position: relative;
+	}
+
+	#controlPanel {
+		width: 150px;
+		height: 100%;
+		font-size: 10px;
+		color: white;
+		border: 0px ridge black;
+	}
+
+	#extraControls {
+		text-align: left;
+	}
+
+	#theGui {
+		text-align: center;
+	}
+
+	#mainTable {
+		width: 100%;
+		height: 100%;
+		border: 0px ridge  rgb(144,144,144);
+		background: rgb(40,40,40);
+		text-align: center;
+		font-family: arial;
+	    font-size: 3;
+	}
+
+	table td, table th {
+  		border-collapse: collapse;
+	}
+
+	table th {
+		font-size: 22px;
+	}
+
+	.olControlLayerSwitcher .layersDiv {
+    background-color: rgb(60,60,60) !important;
+    margin: 0em !important;
+	}
+
+    /* unvisited link */
+	a:link {
+	    color: #FFFFFF;
+	}
+
+	/* visited link */
+	a:visited {
+	    color: #FFFFFF;
+	}
+
+	/* mouse over link */
+	a:hover {
+	    color: #888888;
+	}
+
+	/* selected link */
+	a:active {
+	    color: #FFFFFF;
+	}
+
+
+	#legend{
+	    position:absolute; 
+	    right:10px; 
+	    bottom:10px; 
+	    z-index:10000; 
+	    width:100px; 
+	    height:100px; 
+	}
+
+}
+
+	</style>
+
+
+	<script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+	</head>
+	<body>
+
+	<table id="mainTable" cols=2 cellspacing="0" cellpadding="0" font color="white">
+		<tr>
+			<td valign="top">
+				<table id="controlPanel">
+
+					<tr height="10px"><th>KARMA</th></tr>
+					<tr height="10px"><td>Kyle's AAMPS Real-time Map App</td></tr>
+
+					<tr height="2px"><td><br></td></tr>
+
+					<tr height="10px"><td><a href="./manual.html" target="_blank">User Manual</a> </td></tr>
+
+				    <tr height="20px"></tr>
+
+				    <tr valign="top">
+				    <td>
+				    	<table id="extraControls">
+				    		<tr>
+								<td id="theGui"> </td>
+							</tr>
+						</table>
+					</td>
+				    </tr>
+
+
+					<tr><td><br></td></tr>
+
+
+					<tr><td halign="center"><b><u>Wind Barb Parameters</u></b></td></tr>
+					<tr valign="top">
+						<td>
+							<table id="paramControls">
+								<tr>
+									<td>Parameter</td><td width="75px" halign="center">Metric</td><td width="75px" halign="center">Std.</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam1" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio1_1" type="radio" name="barbRadio1" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio1_2" type="radio" name="barbRadio1" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam2" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio2_1" type="radio" name="barbRadio2" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio2_2" type="radio" name="barbRadio2" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam3" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio3_1" type="radio" name="barbRadio3" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio3_2" type="radio" name="barbRadio3" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam4" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio4_1" type="radio" name="barbRadio4" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio4_2" type="radio" name="barbRadio4" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam5" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio5_1" type="radio" name="barbRadio5" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio5_2" type="radio" name="barbRadio5" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="barbParam6" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="barbRadio6_1" type="radio" name="barbRadio6" value="metric">
+									</td>
+									<td> 
+										    <input id="barbRadio6_2" type="radio" name="barbRadio6" value="standard">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+
+
+
+					<tr><td halign="center"><b><u>Aircraft Parameters</u></b></td></tr>
+					<tr valign="top">
+						<td>
+							<table id="paramControls">
+								<tr>
+									<td>Parameter</td><td width="75px" halign="center">Metric</td><td width="75px" halign="center">Std.</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam1" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio1_1" type="radio" name="planeRadio1" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio1_2" type="radio" name="planeRadio1" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam2" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio2_1" type="radio" name="planeRadio2" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio2_2" type="radio" name="planeRadio2" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam3" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio3_1" type="radio" name="planeRadio3" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio3_2" type="radio" name="planeRadio3" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam4" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio4_1" type="radio" name="planeRadio4" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio4_2" type="radio" name="planeRadio4" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam5" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio5_1" type="radio" name="planeRadio5" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio5_2" type="radio" name="planeRadio5" value="standard">
+									</td>
+								</tr>
+								<tr>
+									<td width="125px">
+										<select id="planeParam6" onchange="refreshTrack(kmlLayer);" onfocus=";" halign="center">
+											<option value="---">&lt;none&gt;</option>
+										  <option value="ALT">ALT</option>
+										  <option value="aSFMR_RR">aSFMR_RR</option>
+										  <option value="aSFMR_WS">aSFMR_WS</option>
+										  <option value="ATMP">ATMP</option>
+										  <option value="CC">CC</option>
+										  <option value="CTR">CTR</option>
+										  <option value="DEWPT">DEWPT</option>
+										  <option value="DRIFT_ANGLE">DRIFT_ANGLE</option>
+										  <option value="EXTRAP_SLP">EXTRAP_SLP</option>
+										  <option value="GROUND_SPD">GROUND_SPD</option>
+										  <option value="PRESS_ALT">PRESS_ALT</option>
+										  <option value="pSFMR_RR">pSFMR_RR</option>
+										  <option value="pSFMR_WS">pSFMR_WS</option>
+										  <option value="STAND_HT">STAND_HT</option>
+									      <option value="STATIC_PRESS">STATIC_PRESS</option>
+									      <option value="TRACK">TRACK</option>
+									      <option value="TRUE_AIR_SPD">TRUE_AIR_SPD</option>
+									      <option value="VERT_WIND">VERT_WIND</option>
+									      <option value="WD">WD</option>
+									      <option value="WS">WS</option>
+									    </select>
+									</td>
+									<td>
+										    <input id="planeRadio6_1" type="radio" name="planeRadio6" value="metric">
+									</td>
+									<td> 
+										    <input id="planeRadio6_2" type="radio" name="planeRadio6" value="standard">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+
+
+
+			    </table>
+			</td>
+
+			<td width="100%">
+				<div id="map">
+					<div id="legend"></div>
+				</div>
+			</td>
+		</tr>
+	  </table>
+
+	<div id="text">
+		<script src="dat.gui.js"></script>
+		<script src="karma.js"></script>
+	</div>
+	    
+	</script>
+
+	</body>
+	</html>
+	

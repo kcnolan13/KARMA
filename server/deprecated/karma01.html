@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>KARMA Client</title>
+
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var map, osm_layer, vector_layer;
+
+      function init() {
+        //instantiate a map type to hold all our map layers
+        map = new OpenLayers.Map("mapdiv");
+        //create the actual map data layer
+        osm_layer = new OpenLayers.Layer.OSM();
+        //create a vector layer for the map
+        vector_layer = new OpenLayers.Layer.Vector("Editable")
+        //add the layers we want to the map
+        map.addLayers([osm_layer, vector_layer]);
+
+        var lon = -82
+        var lat = 28
+        var lonlat = new OpenLayers.LonLat(lon,lat).transform(
+            new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+            new OpenLayers.Projection("EPSG:900913") // to Spherical Mercator
+          );
+        var zoom = 5;
+
+        map.setCenter(lonlat, zoom);
+
+        //add some stuff to that vector layer
+        var feature_point = new OpenLayers.Feature.Vector(new OpenLayers.Geometry.Point(-10000000,10000000));
+
+        map.layers[1].addFeatures([feature_point]);
+
+      }
+    </script>
+
+    <style>
+    #mapdiv { width:1024px; height:768px; }
+    div.olControlAttribution { bottom:3px; }
+    </style>
+
+</head>
+
+<body onload="init();">
+    <p>Kyle's AAMPS Realtime Map App</p>
+    <div id="mapdiv"></div>
+</body>
+</html>

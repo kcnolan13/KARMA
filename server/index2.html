@@ -1,0 +1,52 @@
+<html>
+
+<head>
+
+<title>OSM Local Tiles</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+<script type="text/javascript" src="OpenLayers.js"></script>
+
+<script type="text/javascript">
+
+
+
+var map;
+
+
+
+function init() {
+
+map = new OpenLayers.Map('map');
+
+var osm = new OpenLayers.Layer.OSM(
+
+"OpenLayers OSM",
+
+"osm_tiles/${z}/${x}/${y}.png",
+
+{layers: 'basic'}
+
+);
+
+
+
+map.addLayers([osm]);
+
+map.zoomToMaxExtent();
+
+}
+
+
+
+</script>
+
+</head>
+
+
+
+<body onload="init()">
+
+<div id="map" style="width: 800px; height: 600px"></div>
+
+</body>

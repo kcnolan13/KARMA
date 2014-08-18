@@ -1,0 +1,1 @@
+SVNREV:='"$(shell svnversion -n ${project_loc})"'

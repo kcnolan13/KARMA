@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>KARMA User Manual</title>
+	
+</head>
+<style type="text/css">
+
+h1 {
+	margin: 20px;
+	padding: 15px;
+	border: 10px ridge rgb(60,60,60);
+	color: white;
+	background: rgb(20,20,20);
+	font-family: verdana;
+	font-size: 4;
+}
+
+h2 {
+	margin: 35px;
+	padding: 15px;
+	border: 10px ridge rgb(60,60,60);
+	color: white;
+	background: rgb(20,20,20);
+	font-family: verdana;
+	font-size: 3;
+}
+
+h3 {
+	margin: 35px;
+	padding: 15px;
+	border: 6px ridge rgb(60,60,60);
+	color: black;
+	background: rgb(200,200,200);
+	font-family: verdana;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: normal;
+}
+
+</style>
+
+<body style="background: rgb(120,120,120);">
+	<div id="userManual" title="User Manual">
+		<h1> KARMA User Manual </h1>
+		<h2>1.0 Layout</h2>
+			<h3> The KARMA interface is divided into two sections. To the right is the moving map display, with a vertical control panel to the left. The map is manipulated with on-screen buttons and keyboard shortcuts. AAMPS Parameter selection is made with Control Panel drop-down menus, and additional personalization is available through the collapsible "Show Options" pane.</h3>
+		<h2>2.0 The Map</h2>
+			<h3> <b>2.1 Panning Around</b> <br> <ul> <li>Click and drag on the map surface </li> <li>Press the arows on the blue Pan/Zoom Bar</li> <li>Use the arrow keys on the keyboard when the map area is selected</li> <li> Press Home, PageUp, PageDown, or End to adjust the view by 3/4.</li></ul>
+			<br> Tip: For full positional control, set view centering to "Manual" in "Show Options"-->"Track"-->"Centering"
+
+			<br><br><b>2.2 Zooming</b> <br> <ul> <li> Use the + and - buttons on the blue Pan/Zoom Bar.</li> <li> Press "+" or "-" on the keyboard when the map area is selected </li> <li> Use the Scroll Wheel on the mouse when the map area is selected </li> <li> Click one of the zoom level notches on the Pan/Zoom Bar </li> <li> Move the slider on the Pan/Zoom Bar </li> </ul>
+
+			<br><b>2.3 Overlays</b> <br>Press the blue "+" tab to the right of the map area to show the overlay menu. Check or uncheck options to show or hide layers from the map. Close the menu with the button at the upper right.
+
+			<br><br><b>2.4 Indicators</b> <br>Use the scale at the lower left corner of the map area to gauge on-screen distances. <br> The coordinates of the cursor are shown at the bottom center of the map area.
+
+			 </h3>
+		<h2>3.0 AAMPS Data</h2>
+			<h3><b>3.1 Flight Track</b> <br> The aircraft track is shown as a thin red line, and AAMPS data is available at intervals along the track, where wind barbs are present. The most recent AAMPS data is available at the aircraft icon (the most recent terminus of the track). The Wind Barb Interval can be changed in "Show Options"-->"Wind Barbs."<br>
+
+			<br>Tip: Wind Barb icons correlate to wind speed rounded to the nearest 5 knots.<br>
+
+			<br><b>3.2 Viewing Data</b> <br> Click on a Wind Barb or the Aircraft Icon to see current or previous AAMPS data. Popups can be closed with a red "X" in the upper right corner. At most two Wind Barb popups may be on-screen at a time. Several look and feel settings are available in "Show Options"-->"Appearance." <br>
+
+			<br><b>3.3 Choosing Parameters</b> <br> AAMPS Parameters shown in both the Wind Barb and Aircraft popups can be separately customized with the drop-down menus in the lower half of the Control Panel. Time, LAT, and LON will always be shown, but the drop-downs permit up to six additional parameters to be tracked. <br><br> Tips: <ul><li>Popup parameters appear in the order they are selected in the Control Panel</li><li>Use the "Metric" and "Standard" radio buttons to adjust the unit convention for each parameter</li></ul>
+
+
+			</h3>
+		<h2>4.0 Customization</h2> 
+		<h3><br> The look, feel, and behavior of KARMA can be customized to your personal preferences with the "Show Options" pane inside the Control Panel.
+		<ul>
+			<li> Show Options 
+				<ul>
+					<li> Wind Barbs 
+						<ul>
+							<li> windBarbInterval <ul> <li> Adjust the Aircaft Track Wind Barb Interval</li> </ul> </li>
+							<li> coloredBarbs <ul> <li><img src="./icons/barbLegend.png" alt="wind barb legend"></li> </ul></ul> </li>
+						</ul>
+					</li>
+					<li> Track 
+						<ul>
+							<li> Centering <ul> <li> Control the View Centering Method<ul> <li> Aircraft -- Aircraft is Kept in the Middle </li><li> Manual -- User Controls Panning</li><li> Hybrid -- Aircraft Popup is Kept On-Screen</li></ul></ul> </li>
+
+							<li> coordinateFormat <ul> <li>deg.min.sec -- degrees minutes seconds </li> <li> dec.deg -- decimal degrees </li></ul></ul> </li>
+						</ul>
+					</li>
+					<li> Appearance 
+						<ul>
+						<li> iconStyle <ul> <li> Change the Aircraft Icon<ul> <li> Aircraft -- Standard </li><li> Vector + Barb -- Show A Wind Barb and Vector Instead</li> </ul></ul> </li>
+
+						<li> popupOpacity <ul> <li>adjust the transparency of all popups</li></ul> </li>
+
+						<li> barbPopupColor <ul> <li>Change the Wind Barb Popup Color</li></ul></li>
+
+						<li> aircraftPopupColor <ul> <li>Change the Aircraft Popup Color</li></ul></ul> </li>
+					</li>
+					<li> Hide Options 
+						<ul>
+						<li> Collapse the "Show Options" pane
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		</h3>
+	</div>
+</body>
+</html>

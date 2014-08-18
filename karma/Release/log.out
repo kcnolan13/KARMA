@@ -1,0 +1,11 @@
+TERM environment variable not set.
+! detected. ending readConfigfiles
+connection established
+process info sent
+connected to DDS on AMPS_DDS_NON_NBO_PORT
+Connected to database: flight_archive
+database connection established
+
+USING POSTGRESQL LOGGING MODE: APPEND
+flight named: fl_20140721i0
+Can't open perl script "../../server/regen_kml.pl": No such file or directory

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>KML Waypoints</name>
+							<Style id="waypoint">
+								<IconStyle>
+									<scale>0.5</scale>
+									<Icon>
+										<href>./icons/marker.png</href>
+									</Icon>
+								</IconStyle>
+							</Style>
+
+		<Folder>
+			<Placemark>
+				<name>&lt;font color="white"&gt;2S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-73.5, 36.7, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;3S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-70.15, 41.2166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;4S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-68.4833333333333, 39.15, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;5S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-74.0666666666667, 39.3166666666667, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;6S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-72.5166666666667, 40.85, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>&lt;font color="white"&gt;7S&lt;/font&gt; </name>
+				<index>-99</index>
+				<styleUrl>#waypoint</styleUrl>
+				<Point>
+					<coordinates>-69.7333333333333, 37.4, 0</coordinates>
+				</Point>
+			</Placemark>
+		</Folder>
+
+	</Document>
+</kml>
